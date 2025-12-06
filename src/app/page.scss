@@ -1,0 +1,9 @@
+.page{
+    width: 100vw;
+    &_content{
+        flex-wrap: wrap;
+        gap: 20px;
+        row-gap: 20px;
+        
+    }
+}

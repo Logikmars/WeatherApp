@@ -1,0 +1,37 @@
+.Header{
+    width: 100vw;
+    padding: 20px;
+    &_form{
+        width: 100%;
+        align-items: stretch !important;
+        gap: 20px;
+    }
+    &_input{
+        all: unset;
+        border-radius: 12px;
+        padding: 10px;
+        text-transform: capitalize;
+        background-color: #000;
+        color: #FFF;
+        border: 1px solid #FFF;
+        transition: color 300ms, background-color 300ms, border 300ms;
+        &:focus{
+            color: #000;
+            background-color: #FFF;
+            border: 1px solid #000;
+        }
+    }
+    &_btn{
+        padding: 10px;
+        border-radius: 12px;
+        color: #FFF;
+        border: 1px solid #FFF;
+        background-color: #000;
+        cursor: pointer;
+        &:hover{
+            color: #000;
+            background-color: #FFF;
+            border: 1px solid #000;
+        }
+    }
+}
