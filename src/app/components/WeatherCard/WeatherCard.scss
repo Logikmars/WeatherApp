@@ -1,4 +1,47 @@
 .WeatherCard{
     width: calc(50% - 40px);
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #202020;
+    padding: 15px;
     border-radius: 12px;
+    gap: 20px;
+    border: 2px solid #FFF;
+    transition: border 300ms, background-color 300ms;
+    cursor: pointer;
+    @media(max-width: 650px){
+        gap: 10px;
+        width: 90%;
+    }
+    &:hover{
+        border: 2px solid #202020;
+        background-color: #979797;
+        .WeatherCard_title, .WeatherCard_content_temp, .WeatherCard_content_weather{
+            filter: invert(1);
+        }
+    }
+    &_title{
+        width: 100%;
+        text-align-last: left;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: filter 300ms;
+    }
+    &_content{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        &_temp{
+            transition: filter 300ms;
+        }
+        &_weather{
+            text-transform: capitalize;
+            transition: filter 300ms;
+        }
+    }
 }

@@ -13,7 +13,7 @@ export default () => {
     }, [])
 
     return (
-        <div className='page'>
+        <div className='page fcc'>
             <div className='container fcc page_content'>
                 <WeatherList />
             </div>

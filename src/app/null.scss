@@ -148,7 +148,7 @@ body {
     align-items: center;
     align-content: start;
     justify-content: center;
-    overflow: hidden;
+    overflow: auto;
     background-color: #202020;
     gap: 20px;
 
@@ -160,6 +160,7 @@ body {
 
 .container{
     max-width: 1600px;
+    width: 100%;
 }
 
 .fcc{

@@ -2,7 +2,7 @@
 
 import './WeatherList.scss';
 import { observer } from "mobx-react-lite";
-import cityStore from '@/app/store/cityStore';
+import cityStore from '../../store/cityStore';
 import WeatherCard from '../WeatherCard/WeatherCard';
 
 const WeatherList = observer(() => {
@@ -17,7 +17,7 @@ const WeatherList = observer(() => {
   }
 
   return (
-    <div className="weather-list">
+    <div className="WeatherList">
       {cityWeather.map(item => (
         <WeatherCard key={item.city} item={item} />
       ))}

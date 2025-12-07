@@ -20,7 +20,6 @@ class CityStore {
     }
   }
 
-  // Добавляем город в список (и localStorage)
   addCity(city) {
     const normalized = (city || "").trim();
     if (!normalized) return;
@@ -32,13 +31,11 @@ class CityStore {
     this.city = normalized;
   }
 
-  // Удаляет город из cityArr и localStorage
   removeCity(city) {
     const normalized = (city || "").trim();
     if (!normalized) return;
     this.cityArr = this.cityArr.filter(c => c.toLowerCase() !== normalized.toLowerCase());
     try { localStorage.setItem("cities", JSON.stringify(this.cityArr)); } catch(e){console.warn(e)}
-    // Также удаляем погодные данные для этого города (если есть)
     this.removeCityWeather(normalized);
   }
 
@@ -77,7 +74,6 @@ class CityStore {
     this.cityWeather = this.cityWeather.filter(cw => cw.city.toLowerCase() !== city.toLowerCase());
   }
 
-  // Возвращает true если данные получены успешно, false если город не найден или ошибка
   async fetchWeatherForCity(city) {
     if (!city) return false;
     const normalized = city.trim();
@@ -100,7 +96,6 @@ class CityStore {
         });
         return true;
       } else {
-        // Если API говорит, что город не найден — передаём понятную ошибку
         const msg = data?.message || `Bad response (${res.status})`;
         this.upsertCityWeather({
           city: normalized,
@@ -124,7 +119,6 @@ class CityStore {
     }
   }
 
-  // Запрашивает все города и удаляет те, которых API не знает (City not found)
   async fetchAllWeather() {
     if (typeof window === "undefined") return;
     if (!Array.isArray(this.cityArr) || this.cityArr.length === 0) {
@@ -134,12 +128,9 @@ class CityStore {
 
     this.setLoading(true);
 
-    // выполняем параллельно
     const promises = this.cityArr.map(city => this.fetchWeatherForCity(city));
-    const results = await Promise.all(promises); // массив boolean
+    const results = await Promise.all(promises); 
 
-    // Если какие-то города вернули false (не найдены) — удаляем их из списка
-    // Мы используем this.cityWeather, потому что там есть поле error с сообщением API
     const notFound = this.cityWeather
       .filter(cw => cw.error && /not\s*found/i.test(cw.error))
       .map(cw => cw.city);
@@ -147,7 +138,7 @@ class CityStore {
     if (notFound.length) {
       notFound.forEach(c => {
         console.warn(`CityStore: removing not found city "${c}" from saved list`);
-        this.removeCity(c); // удаляет из cityArr, localStorage и cityWeather
+        this.removeCity(c); 
       });
     }
 

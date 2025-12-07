@@ -5,6 +5,9 @@
         width: 100%;
         align-items: stretch !important;
         gap: 20px;
+        @media(max-width: 400px){
+            gap: 5px;
+        }
     }
     &_input{
         all: unset;
@@ -19,6 +22,9 @@
             color: #000;
             background-color: #FFF;
             border: 1px solid #000;
+        }
+        @media(max-width: 400px){
+            width: 100%;
         }
     }
     &_btn{

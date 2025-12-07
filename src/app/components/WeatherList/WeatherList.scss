@@ -1,3 +1,11 @@
 .WeatherList{
-    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    align-content: start;
+    padding-bottom: 20px;
 }

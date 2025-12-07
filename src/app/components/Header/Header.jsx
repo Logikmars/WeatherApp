@@ -35,7 +35,7 @@ function Header() {
   };
 
   return (
-    <div className='Header'>
+    <div className='Header fcc'>
       <div className='container Header_container fcc'>
         <form className='Header_form fcc' onSubmit={handleSubmit}>
           <input
