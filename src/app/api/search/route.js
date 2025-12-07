@@ -5,7 +5,7 @@ export async function POST(request) {
 
   try {
     const geoRes = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${process.env.OPENWEATHER_KEY}`
+      `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=a09767d14159e2deacf0a127591b8210`
     );
     const geoData = await geoRes.json();
 
@@ -16,7 +16,7 @@ export async function POST(request) {
     const { lat, lon } = geoData[0];
 
     const weatherRes = await fetch(
-      `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=${process.env.OPENWEATHER_KEY}`
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=a09767d14159e2deacf0a127591b8210`
     );
     const weatherData = await weatherRes.json();
 
